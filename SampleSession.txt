@@ -1,0 +1,46 @@
+Bienvenue à la billetterie!
+1. Mode admin
+2. Acheter des billets
+3. Quitter
+Quel est votre choix?
+> 2.
+
+Voici la liste des événements disponibles :
+1. ...
+2. ...
+3. ...
+...
+n. Annuler
+Quel est votre choix?
+> 1
+
+Vous avez choisi le spectacle ...
+Combien de billets?
+> 3
+
+3 billets pour le spectacle ...
+Confirmer (o/n)?
+> o
+
+Voici la liste des événements disponibles :
+1. ...
+2. ...
+3. ...
+...
+n. Annuler
+Quel est votre choix?
+> n
+
+Vous avez ... dans votre chariot. Passer à la caisse (o/n)?
+> n
+
+Annuler la commande (o/n/)?
+> o
+
+1. Mode admin
+2. Acheter des billets
+3. Quitter
+Quel est votre choix?
+> 3
+
+Au revoir

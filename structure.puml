@@ -1,0 +1,63 @@
+/' Copier-coller sur https://www.planttext.com/ ou activer l'extension PlantUML (jebbs) '/
+
+@startuml structure
+
+/' https://plantuml.com/fr/theme
+favoris : mars, plain, amiga, crt-green, sketchy '/
+!theme mars
+
+/' https://plantuml.com/fr/class-diagram '/
+
+/' objets '/
+package base {
+    package base.cli {
+        
+        interface Controls {
+            + <T> <T> getValue(String, Class<T>)
+        }
+        interface Menu{
+            + void show()
+        }
+        abstract class PageView implements Menu, Controls
+    }
+
+    package base.tickets {
+        class Ticket {
+            - Event event
+            - String owner
+            + Event getEvent()
+            + String getOwner()
+            + String toString()
+        }
+        class Event {
+            - {static} ArrayList<Event> events
+            - String name
+            - int capacity
+            - ArrayList<Ticket> tickets
+            - boolean isSoldOut
+            + {static} ArrayList<Event> getEvents()
+            + Event createEvent(String, int)
+            + Event findEvent(String)
+            + boolean isSoldOut()
+            + Ticket buyTicket(Event, String)
+            + ArrayList<Ticket> getTicketList(Event)
+            + String toString()
+        }
+
+        Ticket "many" --o "1"  Event 
+        Ticket *-- Event
+    }
+
+    class BoxOffice extends PageView {
+        + {static} void main(String[])
+    }
+    class AdminMenu extends PageView
+    class UserMenu extends PageView
+    BoxOffice <- AdminMenu
+    UserMenu -> BoxOffice
+
+    BoxOffice "1" o-- "many" Event
+
+}
+
+@enduml
