@@ -30,6 +30,7 @@ public class AdminPage extends PageView {
                 for (Show s : Show.getShows()) {
                     System.out.println(s);
                 }
+                pause();
                 break;
             case 2:
                 addShow();
@@ -42,9 +43,17 @@ public class AdminPage extends PageView {
                 break;
             default:
                 System.out.println("Choix invalide");
+                pause();
         }
         return false;
     }
+
+    private void pause() {
+        input.nextLine(); // parce que `getValue` ne consomme pas les retours de ligne
+        System.out.println("Tapez sur entrée pour continuer...");
+        input.nextLine();
+    }
+
 
     private void deleteShow() {
         String name = getValue("Nom du spectacle > ", String.class);
