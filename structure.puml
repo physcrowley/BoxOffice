@@ -30,7 +30,10 @@ package base {
             - void editShow()
             - void deleteShow()
         }
-        class ShoppingPage extends PageView
+        class ShoppingPage extends PageView {
+            - ArrayList<Ticket> cart
+            + void getCart()
+        }
         class ReceiptPage extends PageView {
             - void showReceipt()
             - void downLoadReceipt()
