@@ -46,7 +46,7 @@ package base {
             + String toString()
         }
         class Show {
-            - {static} ArrayList<Show> Shows
+            - {static} ArrayList<Show> list
             - String name
             - int capacity
             - ArrayList<Ticket> tickets
