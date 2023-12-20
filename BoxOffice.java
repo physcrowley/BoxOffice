@@ -26,4 +26,6 @@ public class BoxOffice {
         Show.createShow("Les fourchettes de l'enfer", 150);
         Show.createShow("Milles pattes mais aucun soulier", 30);
     }
+
+    // TODO (optionnel) écrire des méthodes pour charger et sauvegarder les données (Show.getShows()), au début et la la fin d'une session, respectivement
 }

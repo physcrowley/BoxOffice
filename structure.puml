@@ -71,6 +71,8 @@ package base {
 
     class BoxOffice {
         + {static} void main(String[])
+        - {static} void loadData()
+        - {static} void saveData()
     }
 
     BoxOffice -- FrontPage : > uses
