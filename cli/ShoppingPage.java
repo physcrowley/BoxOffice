@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class ShoppingPage extends PageView {
 
+    // TODO ajouter une liste des Tickets et ajouter une initialisation appropriée dans le constructeur
+
     
     public ShoppingPage(Scanner input) {
         super(input);

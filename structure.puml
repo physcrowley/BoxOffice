@@ -30,7 +30,10 @@ package base {
             - void editShow()
             - void deleteShow()
         }
-        class ShoppingPage extends PageView
+        class ShoppingPage extends PageView {
+            - ArrayList<Ticket> cart
+            + void getCart()
+        }
         class ReceiptPage extends PageView {
             - void showReceipt()
             - void downLoadReceipt()
@@ -79,7 +82,7 @@ package base {
     BoxOffice -- FrontPage : > uses
     Show -- AdminPage : < uses
     Show -- ShoppingPage : < uses
-    Ticket -- ShoppingPage : < uses
+    Ticket "many" --o "1" ShoppingPage
 
 }
 
