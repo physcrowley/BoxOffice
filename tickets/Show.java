@@ -14,7 +14,7 @@ public class Show {
     /** Le constructeur par défaut n'est pas accessible */
     private Show(){}
 
-    public Show createShow(String name, int capacity) {
+    public static Show createShow(String name, int capacity) {
         for (Show s : Show.list) {
             if (s.name.equals(name)) {
                 System.out.println("Un événement de ce nom existe déja : " + name);

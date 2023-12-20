@@ -52,7 +52,7 @@ package base {
             - ArrayList<Ticket> tickets
             - boolean isSoldOut
             + {static} ArrayList<Show> getShows()
-            + Show createShow(String, int)
+            + {static} Show createShow(String, int)
             + Show findShow(String)
             + boolean isSoldOut()
             + Ticket buyTicket(Show, String)
