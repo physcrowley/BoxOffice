@@ -83,6 +83,7 @@ package base {
     Show -- AdminPage : < uses
     Show -- ShoppingPage : < uses
     Ticket "many" --o "1" ShoppingPage
+    ShoppingPage - ReceiptPage  : < uses
 
 }
 
