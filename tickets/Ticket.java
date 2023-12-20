@@ -36,7 +36,8 @@ public class Ticket {
     private String textCenteredLine(String text, int width) {
         int remaining = width - text.length() - 2;
         String halfLine = new String(new char[remaining / 2]).replace("\0", "-");
-        return halfLine + " " + text + " " + halfLine;
+        String oddAdjustment = (remaining % 2 == 0) ? "" : "-";
+        return halfLine + " " + text + " " + halfLine + oddAdjustment;
     }
 
     private String fullLine(int width) {
