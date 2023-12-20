@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class ShoppingPage extends PageView {
 
     
-    protected ShoppingPage(Scanner input) {
+    public ShoppingPage(Scanner input) {
         super(input);
         
         String[] options = {
