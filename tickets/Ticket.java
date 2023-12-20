@@ -19,17 +19,28 @@ public class Ticket {
     }
 
     public String toString() {
-        String printableTicket = "";
+        StringBuilder printableTicket = new StringBuilder();
         int width = 58;
-        int remaining = width - show.getName().length();
-        String fullLine = new String(new char[width+2]).replace("\0", "-");
-        String halfLine = new String(new char[remaining/2]).replace("\0", "-");
-        printableTicket += halfLine + " " + show.getName() + " " + halfLine + "\n\n";
-        printableTicket += "  Ce billet appartient à :\n";
-        printableTicket += "  " + owner + "\n\n";
-        printableTicket += fullLine + "\n";
 
-        return printableTicket;
+        printableTicket.append(fullLine(width) + "\n");
+        printableTicket.append(textCenteredLine(show.getName(), width) + "\n\n");
+        printableTicket.append("  Ce billet appartient à :\n");
+        printableTicket.append("  " + owner + "\n\n");
+        String num = "Billet n° " + show.getTickets().indexOf(this);
+        printableTicket.append(textCenteredLine(num, width));
+        printableTicket.append(fullLine(width) + "\n");
+
+        return printableTicket.toString();
+    }
+
+    private String textCenteredLine(String text, int width) {
+        int remaining = width - text.length();
+        String halfLine = new String(new char[remaining/2]).replace("\0", "-");
+        return halfLine + " " + text + " " + halfLine;
+    }
+
+    private String fullLine(int width) {
+        return new String(new char[width]).replace("\0", "-");
     }
     
 }
