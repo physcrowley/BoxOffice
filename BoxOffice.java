@@ -9,7 +9,7 @@ public class BoxOffice {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.console().reader());
 
-        initialiseEvents();
+        initialiseShows();
 
         FrontPage front = new FrontPage(input);
         while (true) {
@@ -21,7 +21,7 @@ public class BoxOffice {
         }
     }
 
-    private static void initialiseEvents() {
+    private static void initialiseShows() {
         Show.createShow("Les cuillères du ciel", 150);
         Show.createShow("Les fourchettes de l'enfer", 150);
         Show.createShow("Milles pattes mais aucun soulier", 30);

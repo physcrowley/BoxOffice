@@ -71,6 +71,7 @@ package base {
 
     class BoxOffice {
         + {static} void main(String[])
+        - {static} void initialiseShows()
         - {static} void loadData()
         - {static} void saveData()
     }
