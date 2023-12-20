@@ -1,10 +1,10 @@
 package cli;
 import java.util.Scanner;
 
-public class UserPage extends PageView {
+public class ShoppingPage extends PageView {
 
     
-    protected UserPage(Scanner input) {
+    protected ShoppingPage(Scanner input) {
         super(input);
         
         String[] options = {

@@ -33,14 +33,15 @@ public class FrontPage extends PageView {
                 }
                 break;
             case 2:
-                UserPage user = new UserPage(input);
+                ShoppingPage shop = new ShoppingPage(input);
                 while (true) {
-                    user.show("Voici les spectacles disponibles. Faites votre choix :");
-                    int userChoice = user.getValue("> ", Integer.class);
-                    if (user.manageChoice(userChoice)) {
+                    shop.show("Voici les spectacles disponibles. Faites votre choix :");
+                    int userChoice = shop.getValue("> ", Integer.class);
+                    if (shop.manageChoice(userChoice)) {
                         break;
                     }
                 }
+                // TODO afficher le reçu avec la ReceiptPage
                 break;
             default:
                 System.out.println("Choix invalide");
