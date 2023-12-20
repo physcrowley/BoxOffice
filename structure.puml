@@ -69,8 +69,9 @@ package base {
     }
 
     BoxOffice -- FrontPage : > uses
-
-    BoxOffice "1" o-- "many" Show
+    Show -- AdminPage : < uses
+    Show -- UserPage : < uses
+    Ticket -- UserPage : < uses
 
 }
 
