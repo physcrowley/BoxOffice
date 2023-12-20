@@ -5,12 +5,14 @@ import java.util.Scanner;
 public abstract class PageView implements Menu, Controls {
 
     protected String[] options;
-    protected Scanner inputSource;
+    protected Scanner input;
     protected final String clear = "\033[H\033[2J";
 
-    protected PageView(Scanner inputSource) {
-        this.inputSource = inputSource;
+    protected PageView(Scanner input) {
+        this.input = input;
     }
+
+    public abstract boolean manageChoice(int choice);
 
     @Override
     public void show(String title) {
@@ -24,19 +26,19 @@ public abstract class PageView implements Menu, Controls {
     public <T> T getValue(String prompt, Class<T> type) {
         System.out.print(prompt);
         if (type == String.class) {
-            return type.cast(inputSource.next());
+            return type.cast(input.next());
         }
         if (type == Character.class) {
-            return type.cast(inputSource.next().charAt(0));
+            return type.cast(input.next().charAt(0));
         }
         if (type == Integer.class) {
-            return type.cast(inputSource.nextInt());
+            return type.cast(input.nextInt());
         }
         if (type == Double.class) {
-            return type.cast(inputSource.nextDouble());
+            return type.cast(input.nextDouble());
         }
         if (type == Boolean.class) {
-            return type.cast(inputSource.nextBoolean());
+            return type.cast(input.nextBoolean());
         }
         System.out.println("Type non supporté");
         return null;

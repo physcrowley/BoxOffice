@@ -11,52 +11,66 @@ favoris : mars, plain, amiga, crt-green, sketchy '/
 /' objets '/
 package base {
     package base.cli {
-        
+
         interface Controls {
             + <T> <T> getValue(String, Class<T>)
         }
         interface Menu{
             + void show()
         }
-        abstract class PageView implements Menu, Controls
+        abstract class PageView implements Menu, Controls {
+            # String[] choices 
+            # Scanner input
+            # String clear
+            + {abstract} boolean manageChoice(int)
+        }
+        class FrontPage extends PageView
+        class AdminPage extends PageView {
+            - void addShow()
+            - void editShow()
+            - void deleteShow()
+        }
+        class UserPage extends PageView
+
+        FrontPage -- AdminPage : > uses
+        FrontPage -- UserPage : > uses
+        
     }
 
     package base.tickets {
         class Ticket {
-            - Event event
+            - Show show
             - String owner
-            + Event getEvent()
+            + Show getShow()
             + String getOwner()
             + String toString()
         }
-        class Event {
-            - {static} ArrayList<Event> events
+        class Show {
+            - {static} ArrayList<Show> Shows
             - String name
             - int capacity
             - ArrayList<Ticket> tickets
             - boolean isSoldOut
-            + {static} ArrayList<Event> getEvents()
-            + Event createEvent(String, int)
-            + Event findEvent(String)
+            + {static} ArrayList<Show> getShows()
+            + Show createShow(String, int)
+            + Show findShow(String)
             + boolean isSoldOut()
-            + Ticket buyTicket(Event, String)
-            + ArrayList<Ticket> getTicketList(Event)
+            + Ticket buyTicket(Show, String)
+            + ArrayList<Ticket> getTicketList(Show)
             + String toString()
         }
 
-        Ticket "many" --o "1"  Event 
-        Ticket *-- Event
+        Ticket "many" --o "1"  Show
+        Ticket *-- Show
     }
 
-    class BoxOffice extends PageView {
+    class BoxOffice {
         + {static} void main(String[])
     }
-    class AdminMenu extends PageView
-    class UserMenu extends PageView
-    BoxOffice <- AdminMenu
-    UserMenu -> BoxOffice
 
-    BoxOffice "1" o-- "many" Event
+    BoxOffice -- FrontPage : > uses
+
+    BoxOffice "1" o-- "many" Show
 
 }
 
