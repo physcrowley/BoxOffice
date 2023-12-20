@@ -50,7 +50,7 @@ public class Show {
 
     public Ticket buyTicket(String buyer) {
         if (this.isSoldOut) {
-            System.out.println("L'événement " + this.name + " est complet.");
+            System.out.println(buyer + ", l'événement " + this.name + " est complet.");
             return null;
         }
         Ticket t = new Ticket(this, buyer);
