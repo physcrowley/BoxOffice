@@ -22,10 +22,7 @@ public abstract class PageView implements Menu, Controls {
 
     @Override
     public <T> T getValue(String prompt, Class<T> type) {
-        if (prompt.length() > 0) {
-            System.out.println(prompt);
-        }
-        System.out.print("> ");
+        System.out.print(prompt);
         if (type == String.class) {
             return type.cast(inputSource.next());
         }
