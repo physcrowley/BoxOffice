@@ -15,11 +15,6 @@ public class FrontPage extends PageView {
         this.options = options;
     }
 
-    /** 
-     * Retourne {@code true} si l'utilisateur veut quitter le programme. Exécute des 
-     * actions appropriées en fonction du choix de l'utilisateur et retourne {@code false}
-     * sinon.
-     */
     @Override
     public boolean manageChoice(int choice) {
         if (choice == 3) { // Quitter
@@ -32,7 +27,7 @@ public class FrontPage extends PageView {
                 while (true) {
                     admin.show("Mode administrateur");
                     int adminChoice = admin.getValue("[admin] > ", Integer.class);
-                    if (admin.manageChoice(adminChoice)){
+                    if (admin.manageChoice(adminChoice)) {
                         break;
                     }
                 }

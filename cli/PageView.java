@@ -12,6 +12,11 @@ public abstract class PageView implements Menu, Controls {
         this.input = input;
     }
 
+    /**
+     * Retourne {@code true} si l'utilisateur veut quitter le programme. Exécute des
+     * actions appropriées sur la listes des évenements en fonction du choix de
+     * l'utilisateur et retourne {@code false} dans les autres cas.
+     */
     public abstract boolean manageChoice(int choice);
 
     @Override
