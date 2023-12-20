@@ -1,5 +1,5 @@
 package tickets;
 
-public class Event {
+public class Show {
     
 }
