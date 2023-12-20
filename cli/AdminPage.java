@@ -9,10 +9,11 @@ public class AdminPage extends PageView {
     public AdminPage(Scanner input) {
         super(input);
         String[] options = {
-                "1. Ajouter un spectacle",
-                "2. Modifier un spectacle",
-                "3. Supprimer un spectacle",
-                "4. Quitter"
+                "1. Afficher la liste des spectacles",
+                "2. Ajouter un spectacle",
+                "3. Modifier un spectacle",
+                "4. Supprimer un spectacle",
+                "5. Quitter"
         };
         this.options = options;
     }
@@ -20,18 +21,23 @@ public class AdminPage extends PageView {
     
     @Override
     public boolean manageChoice(int choice) {
-        if (choice == 4) { // Quitter
+        if (choice == 5) { // Quitter
             return true;
         }
 
         switch (choice) {
             case 1:
-                addShow();
+                for (Show s : Show.getShows()) {
+                    System.out.println(s);
+                }
                 break;
             case 2:
-                editShow();
+                addShow();
                 break;
             case 3:
+                editShow();
+                break;
+            case 4:
                 deleteShow();
                 break;
             default:
@@ -43,7 +49,7 @@ public class AdminPage extends PageView {
     private void deleteShow() {
         String name = getValue("Nom du spectacle > ", String.class);
         for (Show s : Show.getShows()) {
-            if (s.getName().equals(name)) {
+            if (s.getName().equals(name) || s.getName().contains(name)) {
                 System.out.println(s);
                 char confirm = getValue("Confirmer la suppression ? (o/n) > ", Character.class);
                 if (confirm == 'o') {
@@ -61,9 +67,11 @@ public class AdminPage extends PageView {
     }
 
     private void editShow() {
+        // TODO écrire la méthode
     }
 
     private void addShow() {
+        // TODO écrire la méthode
     }
 
 }
