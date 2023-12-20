@@ -1,4 +1,3 @@
-import java.util.HashMap;
 import java.util.Scanner;
 
 import cli.FrontPage;
@@ -6,12 +5,11 @@ import tickets.Show;
 
 public class BoxOffice {
 
-    private HashMap<String, Show> events = new HashMap<>();
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        
+        initialiseEvents();
 
         FrontPage front = new FrontPage(input);
         while (true) {
@@ -23,9 +21,9 @@ public class BoxOffice {
         }
     }
 
-    private void initialiseEvents() {
-        events.put("1", new Show("Spectacle 1", 100));
-        events.put("2", "Spectacle 2");
-        events.put("3", "Spectacle 3");
+    private static void initialiseEvents() {
+        Show.createShow("Les cuillères du ciel", 150);
+        Show.createShow("Les fourchettes de l'enfer", 150);
+        Show.createShow("Milles pattes mais aucun soulier", 30);
     }
 }
