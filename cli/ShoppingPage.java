@@ -16,7 +16,10 @@ public class ShoppingPage extends PageView {
 
     @Override
     public boolean manageChoice(int choice) {
-        return false;
+        // TODO écrire la méthode
+        return true;
     }
+
+    // TODO écrire des méthodes utilitaires privées, au besoin
     
 }
