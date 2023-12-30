@@ -12,7 +12,8 @@ public class Show {
     private boolean isSoldOut;
 
     /** Le constructeur par défaut n'est pas accessible */
-    private Show(){}
+    private Show() {
+    }
 
     public static Show createShow(String name, int capacity) {
         for (Show s : Show.list) {
@@ -34,11 +35,12 @@ public class Show {
         return s;
     }
 
-    public Show findShow(String name) {
+    public static Show findShow(String name) {
         for (Show s : Show.list) {
             // nom complet ou partiel
-            if (name.equals(s.name) || s.name.contains(name))
+            if (name.equals(s.name) || (name.length() >= 3 && s.name.contains(name))) {
                 return s;
+            }
         }
         // échec
         return null;
@@ -80,6 +82,5 @@ public class Show {
     public String toString() {
         return this.name + " (" + this.tickets.size() + "/" + this.capacity + ")";
     }
-
 
 }

@@ -55,22 +55,21 @@ public class AdminPage extends PageView {
 
     private void deleteShow() {
         String name = getValue("Nom du spectacle > ", String.class);
-        for (Show s : Show.getShows()) {
-            if (s.getName().equals(name) || (name.length() >= 3 && s.getName().contains(name))) {
-                System.out.println(s);
-                char confirm = getValue("Confirmer la suppression ? (o/n) > ", Character.class);
-                if (confirm == 'o') {
-                    if (s.getTickets().size() > 0) {
-                        System.out.println("Impossible de supprimer un spectacle avec des billets vendus");
-                        return;
-                    }
-                    Show.getShows().remove(s);
-                    System.out.println("Spectacle supprimé");
-                }
+        Show s = Show.findShow(name);
+        if (s == null) {
+            System.out.println("Spectacle introuvable");
+            return;
+        }
+        System.out.println(s);
+        char confirm = getValue("Confirmer la suppression ? (o/n) > ", Character.class);
+        if (confirm == 'o') {
+            if (s.getTickets().size() > 0) {
+                System.out.println("Impossible de supprimer un spectacle avec des billets vendus");
                 return;
             }
+            Show.getShows().remove(s);
+            System.out.println("Spectacle supprimé");
         }
-        System.out.println("Spectacle introuvable");
     }
 
     private void editShow() {
