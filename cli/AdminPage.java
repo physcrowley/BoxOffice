@@ -18,7 +18,6 @@ public class AdminPage extends PageView {
         this.options = options;
     }
 
-    
     @Override
     public boolean manageChoice(int choice) {
         if (choice == 5) { // Quitter
@@ -54,11 +53,10 @@ public class AdminPage extends PageView {
         input.nextLine();
     }
 
-
     private void deleteShow() {
         String name = getValue("Nom du spectacle > ", String.class);
         for (Show s : Show.getShows()) {
-            if (s.getName().equals(name) || s.getName().contains(name)) {
+            if (s.getName().equals(name) || (name.length() >= 3 && s.getName().contains(name))) {
                 System.out.println(s);
                 char confirm = getValue("Confirmer la suppression ? (o/n) > ", Character.class);
                 if (confirm == 'o') {
